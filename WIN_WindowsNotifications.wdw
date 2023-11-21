@@ -1,0 +1,427 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WIN_WindowsNotifications
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : WIN_WindowsNotifications
+ identifier : 0x21dd9b8f02f30107
+ internal_properties : CAAAAAgAAACrajG6gEHz2L/Jeigb7Mbqv2SDVllj5S60e1COwq69e508PqoQeyHxaU0aKvQNxmoH6mKYPIoQBfsBhiqiIq4YrZOQ77PCw1cQ6Eoa1EHfXwlabF+7/acbZP1LUyJmNwHz8dDpMjKL0AHoZuAf/eilB5eYXxuePtqT15OSWfOQf+wKKMMX8RTLv5SwBkT1rFGG/gRqu9hR3d/HiWjMlqEiH5SGZztAwR5mK4ynBLh8Ri/hWKnWAK459IQueXK3uW1iNNw6vBg3YXdzWRJff7Le20Qv2PgEnS0VAyRPptEmRX17gwYkhNYKBvHH9R68LPGqHin2SBkc1i6tUbM0HIMZMydg1xLDmS87EKa0UUk2BGJjYxGK7L/8gaxIqm8bCa37rQD5n/9LhFSoqtw/u2czznL25Gz8HkLCK4O15r3vZsnPx8F7yOgRC+qsU8a5ByT5XWvWJIl/Q4WRxGvVA+DlCGx27hfwCVhyif9XLOYYPMSb0dwd/sQI5rfcHEUa+Ri8KX1UG4q3y1KXuugZixgOsygscOIX28Y5YhwLav/reG2kArwKCVeNhRRRuxVJrRfnzGY9uf1tDUSD+3aarEw+i1BwGC18V7pT4q4kJUBwGj257IRb13+CA/v3wZoAKo3aH0eb+vpXVXgudkv3zQtKGllJK7Z9edCxPcMoSbuO9SMdScKuInZY2H0Cf39eoSsJD1VTskCcoQ==
+ properties :
+  width : 800
+  height : 620
+  widthClient : 798
+  heightClient : 588
+ controls :
+  -
+    name : BTN_Create_notification
+    identifier : 0x21dd9b8f02f40107
+    internal_properties : CAAAAAgAAAD5oRDVBk3C4rFkB7qLE0O8J48lFU6j5/AKgI1qOFmEjSeF9Vkk55+s+QgmeBnM5T1bCavKFALtETfn0LJ3od2NvWv1BLdMv9SfdCENmoC4qghP6djFrmCZlqTGgeyPjKE9O/0nsyrD6KEi4xeCWKsJESHnb+9E3nP2tZd1Pz4LicZCQjGNvnogNCGLYaQfnoUk2iR7gwP7QSVFOC5OWYIdV1p0gmF0TsBUsjWOpAEO8QuUhjuq7pmkFA1/arGCtk7MmWORwbWK9hDWz2tXNJm1Qn3eDI+cTWzJa19I3ZIfmZt72eBa3kv/IQdzelrm2RIFKP5J+AAuRZeurJrDSd6sVh5v7I1X8SDDEeRCf+1E2XmnqT86OVzW3DnBTQdBcKNqQZNEfqYRmlPNVa7CVftRAOFNfBgWmgOV+MATitAK/fnjTC/Y8F71oMvXXRhaGm2e8os0uBrlSO06wnBR7f68Idk1yQjVxSAMj/3nF7n130xjm8aQmePCp3fzNKNxAiwfzak2HniRdYYu8aIdyNoMx8wfKnsbLhMBoWBTq3jBHL/2NWwSk0sdkzNlQDvK1yZjOFe02EF643nXrpPiSUsdLKgrCHCrDWngxBQHiScl/SzjKsPdeQ7UQYX+G2Sd40w+RJu+BKQV+P1sTS+rNVFZ3KQ9MCMQ+vDMPppSebhNUYQ07Vzf7T0f0Q0S4x6HQWtlh4JaCBMORGOo7sx7rec9gsH/rDGDIGtWJUGSzd9OZmhjNg9SlBPEhK+3QTwb+ucIu46qsL3xQPwX30DQrerXsKDPqDx9yw6FvEEPNOPBiZUAh6uaCKyHc7Hgb0orbNvgoMlxaro0/6pIHPGh9y6XaFbwmeOdpLGrX+qmC/Lt+T3ku/6Qn2616PAiTM+PrYxd
+    properties :
+     x : 602
+     y : 254
+     width : 139
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        internal_properties : CAAAAAgAAAAtBzhz24iXstUmQ6xwG/4/1ceGMP7Lv5fFNA8S7PEpOYdyMATlnl3tNsWDyoCu48Sl6IjI5j63ew82lTYvsU3lbJC5JKAJiftRUye9zVt3C/oAeVgZzHMSwfGyLVYygnGA+FwqNfG0mF5wkco=
+        code : |1+
+         
+         //Create a notification 
+         
+         NotifExample.Title				= EDT_Title
+         NotifExample.Text1				= EDT_Text_1
+         NotifExample.Text2				= EDT_Text_2
+         NotifExample.Date				= SysDateTime()
+         
+         
+         //Procedure called when the user clicks the notification (not a control inside the notification)
+         NotifExample.Action				= ProcNotif
+         
+         //There are different types that determine the behavior of the notification
+         switch RADIO_Scenario
+         	// Standard
+         	case "sysNotifStandard"
+         		//		The notification is displayed for a few seconds on the screen before moving to the Windows Action Center. (Default value)
+         		NotifExample.Scenario			= sysNotifStandard				
+         	// Reminder
+         	case "sysNotifReminder"
+         		//		The notification remains on the screen until the user takes action. A "reminder" sound defined by the system is played when the notification appears.
+         		NotifExample.Scenario			= sysNotifReminder
+         	// Alarm
+         	case "sysNotifAlarm"
+         		//		Similar to "Reminder" but the alarm sound is played in a loop.
+         		NotifExample.Scenario			= sysNotifAlarm
+         	// Call
+         	case "sysNotifCall"
+         		//		Similar to "Reminder", but with an incoming call sound and a different style for the buttons.
+         		NotifExample.Scenario			= sysNotifCall
+         		
+         end
+         
+         
+         //*********** Input
+         //Input 1: Edit control for the example
+         NotifExample.Inputs[1].nom					= "EDT_Email"
+         NotifExample.Inputs[1].Libellé				= "Enter your email"
+         NotifExample.Inputs[1].type					= sysNotifInputText //Allows you to specify that an Edit control is required
+         
+         //Input 2: Combo Box control
+         NotifExample.Inputs[2].Nom					= "COMBO_Country"
+         NotifExample.Inputs[2].Libellé				= "Country"
+         NotifExample.Inputs[2].Type					= sysNotifInputCombo //Allows you to specify that a Combo Box control is required
+         NotifExample.Inputs[2].ElémentsCombo		= ["1"+TAB +"France", "2" + TAB + "US", "3" +TAB + "Germany" ] //Allows you to add elements to the combo box
+         NotifExample.Inputs[2].IndiceParDéfaut		= 3
+         
+         
+         
+         //*********** Buttons: in the example, the notification has 2 buttons 
+         //Button 1
+         NotifExample.Buttons[1].Libellé				= "Download"
+         NotifExample.Buttons[1].Note				= "UPD_Download_button"
+         NotifExample.Buttons[1].Action				= ProcStartUpdate // Procedure called when the user clicks the "Download" button. 
+         
+         
+         
+         //Button 2
+         NotifExample.Buttons[2].Libellé				= "Later ..."
+         NotifExample.Buttons[2].Type				= sysNotifReminderButton
+         
+         
+         //Send notification
+         SysNotificationSend(NotifExample)
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_Test
+    identifier : 0x21dd9b8f02f50107
+    internal_properties : CAAAAAgAAADG4y6/J1RESygUJp9aMlSMJU6kxOKvqjZdhspYarrB4eZjF9z0meQn/lIskNj3nSmajDiM9YtwJYPxDIBMYBSOrOFy8/R/ppUbDOMpURJ3iVxQxEgBfsO6QQia8abgv5AGsh9vG9sQYsO7ziN5KbAtyzOvFCT40xFaWmXKiQKyfA+7xt6jVHzrFKS4yiDQvDCubHQd0gWEU4xMvRQHCQgw9E3q/+zYR/vKWDlCOdW68RtZokTZomiMaACCma24V71yBR4CBVl9d2Df/QSdWIGvM9ho/3IBv7gWOdr+QfQaeIk3pegOJDTPdNnVwu4OhCDZozO07qVKOeWCOpcjcx12OdpcuH6IGKFYPmv3aISah+axYPeI0dnH7wbRdi+GDMYHyuvu4aykmkJzGBtR4AKDyUmcL2h/q0dvUyS5DzHLlOPJA5kTza7RylVcj7bWq626/enPV4mlRiExRFc1YmUc/XaJnlGm9RLwNI1WW2RCs2QC9d89IpEOs/iJ6VUmiXLn/plt6QfvE77FiZ/VEVGMdWvpowBMbO8JHvIM2XHIfhmD+4VfCBvXdXjVs2H97JIp7e2/V/R4fRFaboDKGrI/6iHdb9MiO9eqLSxsGzTgdU6UGgp4dN5G6yiUyJaaIhIe0Wv3MbV9GDPjGcrpiJ47iMNzobh1WpKMFcg9qTcOn7y3nUuqKJUbyeyIVHT4LP1LRvC9l07iQKkTUsX3UCES4VtMuDmBoYrz32JcwpsIB1O9aYu4FxCStBqVfoaosS26XOqXOUU0zMQ/tKcIeype1NykmKldeD3TJIxZ0fOAPz+IcEZBo6KRAH7V2vYp8ZYcq1AQMla3/w3eIGSjJ2OuOQl+nwhU0/7bAIkBr5LHSA==
+    properties :
+     x : 456
+     y : 120
+     width : 54
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1+
+         //Starting with Windows 10, "toast" notifications (on the right side of the Desktop) are interactive,
+         // and enable you to include buttons, input areas and combo boxes
+         if SysNotificationCompatible() = False then
+         	Info("The system does not support interactive notifications.")
+         	return
+         else
+         	Info("The system supports interactive notifications.")
+         end
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_Remove_all_notifications
+    identifier : 0x21dd9b8f02f60107
+    internal_properties : CAAAAAgAAAAHM/RaBA0Tb9iBQU/AkqDnXqqOvbx5TuNzgTfT88r6CjrsbhvkdRyrokVkpxotPKR00h6+0h6KOJbo/EM69L6+TIjMdOmxCYHS6WSB4VuHat8CqmQKWzdXZUX7TLQb7inMD/7OOxbql6nDhV4f2PQHRbGteHXGaRjHbptxmOJQLD9v45K6mmoLu5baayXxNb3V9FWWiCht31CdEWfAkq+WkA27j/OXGG0fMO+8s4TdR0FFEpWN6uSGXkQ4Uy72zCKAwni3zM08hbqOPykuDcJjN0J/dgU8lLmPNOMQaCCZfD+adCdqpdc6xsrklHcNirw2ak1hBUW5RnBfWmtD3LmqIG6g0TokpaEqFZtkqDJekx62K2033SsZwsJYgvwyJv7Fer/q6fBuQ5BWqVSkw4nNznQw5xtCk7PHgNztqiuzV+Edm9i4cELcRUJsDKpmY5VH2PN6vqMGA5d9cOSN6UqmYsBN1bSWKhkiSJPjq1nVMcliQ5aAKuwzwXx/alljuGAwRG+U5CfUxhS9s8KtCOLizM+3ht88j2S5CPqN3WQdEuLfS2Zc/lIyw/RxQPt652hgn3/QpKyl/rN6UEkYx/3VaSvDJFTOlAS6u+rFL/9Vb51+cilj3hdNNaxai1TXmYSfXf0S+K+A04fJi/Uhn3exGWeVvlFdp6emTTAi2eoDDd3rs17RIPDGh5QAizYvuV0CAN4yeLDjk4m1quopQOD+hhEYmFcl4J314qaiwODNNvtFEPB2dbuQCviIcSbEqxOkdvsHaeHNPXAP/UZy7SqNA1tF+AyYeBeQPtzMYWz+Sg+XNhCqT0dcBn+c8mn3QOqwaPDvmpuNTM0lDcwF4+oSzjpxRi5d5hrl//NYGbCMLNffX4CP/VEitaJta0ovJ4gb3S6RJ8dCkhAu5g==
+    properties :
+     x : 550
+     y : 433
+     width : 191
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1+
+         //Useful especially when the application is closed and you want to discard the notifications.
+         SysNotificationClear()
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_Remove_notification
+    identifier : 0x21dd9b8f02f70107
+    internal_properties : CAAAAAgAAADdJKrKEXYci8Z9VlTd5yWW928QAIV8DvdB06xOvo3EeJrTCNoJ7FEhpnX0ezt+2mRVBDeWLIsWB2GjVE1bFYD/T6DhKG3FEB6/f9rYLTIOavGmLiaAF8pubxiLMQZZIg9XW6tkRRSQN1iVi9qWLq7tcU/+hWmif0GU5cFLI/F0/HVLJnoEyhwjjIqLyWZ8xH19aqki8nveo0/5/tIFCgVMVsRMZs5CBJzL4wdR1XKAsOaK+5iGH9PkTspTgw6QZYSKjHLM6VG7jgkcAqYnBrzYt/cQc3HIbnmW2G98fbnHcW4DOLDPHKSjbWySBUsunSXC/zs9rt+GARF3gmO9yGqhVY9AShxeXjc7hh8eA0cBU+SV4SGJv81UfWsWFrOJokPNtKvlTf+AALwVuy5TFABgWwpbG56b/3d8hjce4nD5jt9Gdui1PP3i1o8RtFkUZcHstPWqg6djN6dNBmwEO02bROEvKfE8N71y7EsNJGty/GVHvTS9RIWts75hYmDLdzH8xyWqG5vf8G6jP6TClE8NPriFRnSiembbHv6NNKbypSZM6SgnVjlCdyhxpiKM/mFI8D1qow5m3td2fjmL2TTOjTjBPrvQE1w2c1Ll+m1IDO9hXsVoVgKRTZSGXz1LUI0t7EE0KZ8RPdH3N00iz26qBQw3LMr5rNP28YacJgrqNoHob9D+zhXM/fqGI9VfMMaiCfqOiTIAiV/DOK4yCoz8TQE3sItipRMQfCdP/nlsW2VfPuNlN9GfOedXp3v0fBm10kz0mGNQqTDZIHqQmqQruHhlsM8idIIzJYV5aOxbMH9hgSJyUM9JxXxrjiYgSgMQp/Zivqw7FXumfh344OxPdMjWuVP/o3AdiGLWHVn8iDhq19QyveE8Ahl7SvNnGDrtH86l
+    properties :
+     x : 602
+     y : 340
+     width : 139
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1-
+         
+         //Removing the notification makes it disappear from the screen and from the Windows Action Center.
+         if SysNotificationRemove(NotifExample) = False then
+         	Error(ErrorInfo())
+         end
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_Create_notification_using_ID
+    identifier : 0x21dd9b8f02f80107
+    internal_properties : CAAAAAgAAACQEoF79hnn1FiZ5xYNa1Tmfr0qqReefUUup2ViNJ97/iR++ae5y4TGZjXIhy1LXblfT63XFPwE8xq+gsc//pVv6bF2xxkRTn1pXLjD0+5540Y3cGPg2JOOC9Mo5tAl7Klvb7ZhhWygIgf29gZRkS/epN85YWKa7Rajfr33JnODwrWquNF7lfx6ZGPAeiTC1U5P9JoeLrpxCMQ2Rynhs0uIARuw8JnoVES+dOTS4KNkKinqiLKjSA5kH9bR2ZI0pwbUHvxgrm10tjLUZ3BtFTaJ5DpPOfELGGJbr5j1RNioxxqmuSQjpRIe0MKdfCXWWhSNjlBDhuBHqlDoCSMM+OqSbm6eVI6UKplg0LTwp0YKR4YOLtcG8ZqKodG/1yA9zLAOOJXV+QlU1iGasyqH8awYFrwzg9rvfo/Mq6rQ1GcwJaDVd+92Cxxpif+I9LVoyCkvTGLL4lEKCwsKsrsXIQZjL0Aukr4+3t1i363kh4HR0rJARndaIsD1O1+z1UFF8ilVfFpbnpFudAI6ZT1VVHJNx7V+b3+6NZAB/aT0WzxhoY0PFOsqIqLyN4NNuWEc6e3VkSo5qmglfld/tv6Kj5nM6McAQ8QEqhAqjCzWywkn6FIwjZZlIDljs0/49kqtd8vCXcrPgneESY0ufw7pnwug+AMyKYNHWdFg2GwjWZYDvua59Jvv5IDab3toDvar6fIXmg8P9pL9s3UAHoM9JtZvdHSyGTJM4iUWBUku/+tx87Iwfxj0reITvbyTPNBcga3wEU/XzTXUVn85f0eDzrcTcJtKe1ZjVglKx2VRA44+6cNSbyFqGWe0k+4LcM8MzWAk1WkeHcqq08iL+hhu1smWmKmX9tKbjKkm45JrcHe2m/L4JUReMDmWGNwEM0dGwjEUCYDx8Wz9dQWRF+8L
+    properties :
+     x : 74
+     y : 522
+     width : 221
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1-
+         //Create a notification with ID
+         MyNotif is sysNotification
+         MyNotif.Title				= "Discussion"
+         MyNotif.Text1				= "Hello"
+         MyNotif.ID					= "MyNotif"
+         MyNotif.Action				= ProcNotif
+         
+         //Send notification
+         SysNotificationSend(MyNotif)
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : BTN_Remove_notification_using_ID
+    identifier : 0x21dd9b8f02f90107
+    internal_properties : CAAAAAgAAAAuusTwe8aHS80osrHlBR7DUP9PatennWGTjlfTLVtvcKYayPjRYT7mx8UfnPgivarEguPfhnMFnNByF0yIH8RIDuj4jfEDIlQDqPHRD8coOh1/Ax7ipO1/GlsDC+gAK5/wORmhDO2t9KtBQ3HGgBVGfbMy/ISHKdivU+0H3UJUmbnS4dPa5TV3IE0GqARIY0bSV6poe94vVmIFdaoBr/CPY0GVmmStGO/+s2PYWV3nLSRvkqHXb1j2xc6w6fvAG/q5QiAU8CauDMBzjSxbJs8XSgy4wddaRB3bMGjUJQ/Gid9LvshALruQu9LHJOz+EENLkKczeQYIJ8oyq7QDotmmE3gSOlQ54ElLenzJOJ5xu3CSlH8tI0ckDIhsXlleurlqrBq39dyIi8OduMTpKcmkPeHZi/nlQ85HnysXNGw0CxuHMB80VIayhe7uqXswDf08JGDvqbb+0tZ/05UiXxFwtl5efYaqxxiFpE7QzF387XteOoYipOPeBHQ0aSzdtSp4TMy2GHvHTRdpQAtyDhum0o9++tEq9FH6aq0GWs52oK7fMsJidkf5Ajx6Y5LGkDiytYiw8uJWHWJQY6ADA6Ad//NCnrjOIfknaZUGzA2aZcVCPaNr8MZsnJLf8o/TXibbyzawqPVbXtLj6Ejwww6H/X3Sbo+RUkbB49MfkgTAh/23dGg9ClUdXgBZxq3pKvvyIrEY+BD2VOaxMx+qIBhgZJjLUjMNWeKOoFfPsfQWoLvXL3xkVyCnhXapRucoRFNyaExFzZ3sAH9hzl2V6a/ZVf22SoD/R66TosWDem0eYFaqqXrqvF3cFKnWx3JndbVoQA5imZ4FcuFphGuoZu1GtBw0aj+4o4GAM6YuwAypMta/IA0qIAkE6/tnxhOxh3GY241PXQd0+xTvtN9aG1E=
+    properties :
+     x : 313
+     y : 522
+     width : 221
+     height : 24
+    type : 4
+    code_elements :
+     type_code : 4
+     p_codes :
+      -
+        code : |1+
+         
+         //Remove a notification using its ID
+         SysNotificationRemoveID("MyNotif") 
+        type : 18
+      -
+        type : 161
+        enabled : false
+  -
+    name : EDT_Title
+    identifier : 0x21dd9b8f02fa0107
+    internal_properties : CAAAAAgAAAA7dFNN4K1SBXTy5G5Jdio1wm69mYUuqc7x6Utl41cZMejAwknbGe44qDPjnnezD/FCilvv0sknElqCI9VDSrwabEHJ+2ZzF+pIwvq+Vc6L2iRETLI878vX1+LqxEa50BGO+BfGY+QXEd14TzUNLoWqkjJJeCesNgsNmphAirzEu+PM59QWPLStc6/sdnz3HXjfWWPRVc0pZzXyVYwI0sXpemEpSBVeyMP1Syt+PUbF02G2B0dHvlHZf7w52RL9gMVxgVFpICPR2+GiGgyhO2QnmqOSju4pLTAowcoSVXHDVUgtADXxHoW3511Sae73fPqIIL1TEcpu9V/8PonuAWKRVg/BJqUD0gymBKYVTgSpQbQ1oL+dAZZibOUbOHU7qnRti8UtpWiZHjRCrHdx6CWuIMYskNgb0MtyxRLaF1NUxA91uYw62vnRyZ0m9RNHhpCLcbgMlrxV5mswrrdk+7iYw4VVBAVk1DEA+YgqIwdOrJlrsONODc0MF/cx++3IKtSkGhAaZ72mgTafTPGauxwrQ22XUF1vVCo6qcmW/Z39ozRXQ69mHm8jk3zLl8MgDnHBemlHJ1wRB7iEZVgpG/dqfBsdJM1v7IssXxRX8VvrB8glCIvow4ERl99ghn38Oh+RSkjY/ApsZ+zuYNklhQACN5RAFiyHJqGZopHTfI/nuRL+28LUQaZ9fvZdMa4HKExi5UL8zAZHdRZZI73FHXSuWcPUxJnGVvnPLRfQA5QD1QALqg9Xzpv7ekSRUqedVDFzd5LQ+XLz4wTS3Rp7OH0Ao7qDCT1czhWsIlV3v8VIX2P/o986JhzOE+gVbdqCfHRfsOQQxfu+k+Nns1TktCIlgcIrqV4/M8RF/fZgzB8cWLZ4snfJD9/tv3xh1zc7ewVyQIzIVDg8ajDIFbTv1Iubnn6jsJpHcneJU+bAHjJWE6eMRqO4C73mayV4IjvQGfL9Qu5JB05a7Vp/IlIs80y08Kv474DvPtT76Jdk4RxcTxDGddwDYZNbdW0J/ZTAXyhuuDFmmCZsZxQXtAw6AJyhdxc54uEs/Jxi3s8tDTkf0/vxZOLAnhWAWrbzhXZ54PxanIFdG+2lkc06bAwm/2ud95l4WTZxKYB0VHrznrjL8ng426x70E7n2MDp1WPK65m3NkFWQv8EysrpmvyaltnqFJlgBBqGZatcBwnFCCo8lNlyQXbGHeaNyVQ+su4Wskm/C8nVk922+8fuhXCQqq4QVOGAgKwqogQpNa6WdhRktQnMDBSMTTYvIdfxBsyG993FoOKPsfLxdHiwGBOfkNwnx6i4vb+UL7fgNt77
+    properties :
+     x : 74
+     y : 224
+     width : 374
+     height : 25
+    type : 2
+    code_elements :
+     type_code : 3
+     p_codes :
+      -
+        type : 276
+        enabled : false
+      -
+        type : 277
+        enabled : false
+      -
+        type : 278
+        enabled : false
+  -
+    name : EDT_Text_1
+    identifier : 0x21dd9b8f02fb0107
+    internal_properties : CAAAAAgAAACVVIYdYdILtw+ViAcfo9+mmAdR7KCQ3TiEUp4iVsCQlEo2VmgmJOsPNgMw7ruVqWpERKJa8RtPWuk2WgxALF9TP/vhhTfok5iqeGN8z4RUMGgMrl4mtbdPG3TVHCLCaxkqRwFiR6hLvoNOmdGY9wK94bOqiQcJ8ZuwlT8P6zkgUopwBcUddu2V8wWqhnhNnb55WTjH9G9rjibU+xn1Cj7KVXIjATPKicASmp43B/WCHFBZMEvvLot6H4lMzLYBdDu4X1F4Xr/muGAdHRCnTtI/t5vomIRvYMltZARo8T/xtLckDAmVIrCdeFm3LxN1dq0Gz5Jsqa+0EmmJNh89OK//lc5HfcHJFz0RJ4jgyx82ejqCgBe3PDZz9Ep4O45d4JlkMwhmxheHkBCbpVkcET+4wYHJf/sXUbYlq40G4wmFB6R07gzIihZS8tO+bsKIT26XS2mAgDV3Pvumrqei+EUgtORTZuB1HwRsOJYDvoGpn1CBmvmI/ZI0XnuQgApitp0TUZ7nKGBPrKIwD8RPqxybpKuze+QCkkllhYyuyI/gpAC8msRU168mY5HFWcBedf2yklzwIY9L5yEYscIL5bNQswu/KazZ944LrwGmqty+8w5XLSm8wQ5KbiqZ8vdzu2wpggQ8Nb/5eZlvGeTKloC/4mdDf5/GlV5q4MOLDuRdAwkS5Mmui5s94vfQIMqIXvSPuyuF2EaA4f58RMALXKDkKhU7XaHSzStJ4sob6SkxFbNLd8oXWo5J0vFYx0d4SK9CU4HpS5weK+zRnsuPmU0a+hBWOJGEc49mCQaydaxO4yYntt7IDPdeXcOCmFA57njgKGGnj/X97VsCFNsk8WpvfPjcbCCxkrat9DPhBkogIkWItxi7QVaZUVE8LjEG009PVJXZeKhhSpixhCHl07cBFaCwofiFsev55vf3/s00q66SObTkU3BUc0xFkQGVP9rUgqkWcx5bm1pMLYOQ4mgaK6MFNBKZiWKFb9DNg/UYfWHSLrFvgfSP68RqPHzlpy43hgwVXCadzdpWiVcwPdTr7IOaZ7nIdeL4X8Ke297dmzRTM42mtEpSvhm4LnROnLLvGpRGnacss339JescfPertHVRXsAbWmyuEzPuSOs5Lrk01K23SJURZAksSjFnfXFAnJqd2DV/ENZWgWm0mfF8LVmVW/A0jPF2c6X1bNdIyNF3Pm+eGWcjSYHLrfCAaYhRzYRDsXf+pxFU8j1c/kyqWnt7+bs6qo8+UtvcNok1nM5VaFnOkpVd1SEr1yBrsYsrkRSvsnt3hH2H70+ZIthudIYUu0i8PqKCo4PLNkoJ8J9/rgEQV/+gYsYr1FGhdNQPE7FFjv+ok0XFMel0t4qajw==
+    properties :
+     x : 74
+     y : 255
+     width : 374
+     height : 25
+    type : 2
+    code_elements :
+     type_code : 3
+     p_codes :
+      -
+        type : 276
+        enabled : false
+      -
+        type : 277
+        enabled : false
+      -
+        type : 278
+        enabled : false
+  -
+    name : EDT_Text_2
+    identifier : 0x21dd9b8f02fc0107
+    internal_properties : CAAAAAgAAADgNvugr8B6sZW/MIQMY5bTdNCduHWLGS9QnvgNygAwE1urai+8BmBDdN+h8c1qiKdaJcDFpwGESqLVccjKT4a7ZJ/c+LWzlmf66tOUzzar1Gtp0mOmGjPDmSi0CKxtBQQfaRaJ3glYw/0jYUpcRzQWGJ8fOxb3Lhx2/k3oqXPjnyepBqKLIO3NH6lNJNjgtM39inoWzgTpImdkkZcbsMmb4910X2IbQyaqQSueNV8eQ3yIJwSCqFy/RaZrAZa/aCHR2BiNdLlNrPA/gOqOHmBYuOEAfG9fEX6Gtv1wjElgn9pHcYPYZ2zBZj0ecKJh6KIlBJsrjlHBx7zieEz9AsGmb6XYvR/j9U37/bEgUGlCqA7oaSRbNOaMXbwNMAeTuyZZCT/WXinedjKKmI1AvAVSDtFGm6ArUE471QnlQ3NpYjkx8MKsIjseE65wi9tmQBOCUYLE/Rza0Pc2rTAqnhsJRYsjKd/x88eWnmpvxyxXTrBqOySW8ROHu1qeB1F9TP0XtEZoTWjzFWjqwxm1dilc76HizqyqmZ2/cJhguYNCoDsHVxSAMg53jDrjR+5bogoMYpayFAeiTOkVxKAPaNMADSEOpLbnKFqgxFPoNDaUDWhCGi0Kv7dnuEEsV4r1dy+FBThGQfxjOj21X6eaFRN7H2v7DbqbAgIt9EU29/2xYF87xWYF1sEEDr8IUv2TuxNgOdfHggBnrFg3VeVkdIGF/U4+4xAsL4VUJdpLGaEc2SRNRej0+oyvWaNVEI2U53pnfPgGuUEDsmTALLmiHu3sVwrmitWDydCJIXsDzQpuIzTDiZ8nYETktK6fB36L4E23XawBxUwQW2Qq3BnNjm3GvjOUoysOs2jP07s6jmJC4K7mtZnAvrux2f7SlwZOIk8xYndwNw59mEVWGnUcJkYF63fyz+/EuVuillgA9rY6En7jdSYGpfdopa0sb7Z9ayo3WnCOgxdpOcpw/qkPn5RR/o4+hpfuQJP5zNxvppJ7avp3N4JmlkRW130ginJ5XlYBBmEpKPd4r8eUcvGHrgK1+ONltjat/EkDGFZXJ/e1ayflpJ/DAHI1du7nzBKanWEj0ekJnDjzdGkmW9rUC5KagQJbXgqrHH+Ey5EOvBIIjjrJPQCBc1mnRsXBUaEDjWHAyAvvkhbvTn60t76MYXpMN0QhTVS+Bxt+KQaXBFeSK62lbqAI2WfynsSZKFjQrwSyPfn9djH2mUuxnYoK7p7RO96NgBImR8tj+s8ldlTmboaUpAssD+0h8uZg
+    properties :
+     x : 74
+     y : 286
+     width : 374
+     height : 25
+    type : 2
+    code_elements :
+     type_code : 3
+     p_codes :
+      -
+        type : 276
+        enabled : false
+      -
+        type : 277
+        enabled : false
+      -
+        type : 278
+        enabled : false
+  -
+    name : RADIO_Scenario
+    identifier : 0x21dd9b8f02fd0107
+    internal_properties : CAAAAAgAAACY/K1XOZ128WFdSGRKaKCxkdgQg3TnSAQHeAYb6lM7Pgx7hzG1p0TSbmpnxAfOLlPFUri9R2tQ5S4JQCZebVUID2FerYMbOQGAE00RYm7MbmyAgGiTwi0fRsb+BzxWunVsioFaH0Z7kixn/rIzINbZnIuoGaQmLeG2jIXj/i4xbHLOF4hHe5R4byFiEsbEAhl52cjxj+njcb32gmAseRvGqan2WNWe+Fr90tAx1rrihy8SIULxVjmk69I6rBAXUa/wDJB7hhcBTt2NBwRQ4ZPcWdb2rfErNSBVm10N/hvmOKZKZDZfGiPDugS6yjmAlS2yaxJgrudP24lJKlvnc8/6VDzJUKQwjbQqZ1SupeYr1DAWcfQEYLlSpx5OWwgaPeIr7yUnq77KPdelKfFHNsCKFXtbejCdMCvFzEzCqWRRMvmBZ2n43vNz5acxPaH2cpePRkbvY3hUj7HnusFeo7Cunnr+z5OdUFAF5HlzRj+FkUZTJvJUlf6WIsWV1tNvnJjok++u9Y9vZLIpDUum4iFaZdhiPGosmV+/j5dZ4uOlCINolToqypRKV5HQIp4PVJcrNFIHKE8OLi09bTl+c+JftVKPguxGVsMrGgCkcD24bqSd7AfDjj6zdRosvDwKbIGjvG5R/h3Lu7wJpt83BJfUL0qoQwpA67dfl6G3mVkvALtpI4/c84w4DyO68VdAj8b/ToD5nOyKAL41bLfjMtoDq8AJYsv5lccjgojiNNSqMiIbpElNsN+ot+r6aJGYThY82JdffsWe5NVnBpFb1p+sB17T7U82yMc7V/JQV7EKQX19vqRSmhId0yHCrR/w7aNnRTpTx2U5mTgv9BLYL9tZ+RlH6UPxRdW6rzqKVdrqS89VuYDRtX/dnLn5qbjnQKlaZuwf+33n16vPjfHildF0ynrwbO/3L7+DKcpBY5N5yy7FcQzWxKVCnaTuwivBfs21jBy2HjGViN6jIgW6o7/8DuFMZnWYHg4gBg2yt0ewXGHbJJ0suyHufB3i+uAYWH7M0kqeAsyPaRmjhAk9hEDiNI+T
+    properties :
+     x : 485
+     y : 224
+     width : 100
+     height : 84
+    options :
+     -
+       internal_properties : CAAAAAgAAABRdYHP6HlzxiL0Og9Sj2B8R6lT5OnLM+h4gFUSiXRjV7p07v2fZFzBqUJQPYmYDO2di3AunK45hM4xh9tEuaTcFB7mvijKam6H2hZSNGjIlw4bJYxqJ4G3sfWUo3cWcziPa+42jYbCRuaOxqkN5RpDaK+WxgT7Mo5wYKL6DnYKiEN2g+3g17uvt3IBbmTPjBWFIaUTCPYt89k=
+     -
+       internal_properties : CAAAAAgAAACs0RyqK3Fpcz2MwnGimIV24SBABlJi0kcocCSsI+rAiCg+n95yJXVMh52y5ff+Tbox8Qok9hAY+DUAnQW8yPERAhamRjsSeRThfazxrLkjr+RzNpCFAR6gkTm/vygZvFZriX0S3DrXJ1rK3tPldsLYj7geneJ4RoB7p+viT6To+C/SCOE2hyQbheH7WRCvavA+XzTv6z7JXy4G
+     -
+       internal_properties : CAAAAAgAAAC4lbGGdWjw3mWOhUBYKT7JBzMhKApHsg2JbGpW90EDVvZlYK9JO0luJWlg+XioLhWHo7XlXME7RNk835BvV+vmjzXe+NNw2MgWAbDvAygWB3k+WMC3TnZD5o8MZ/bURw58Zmm4fMHVbJl2rdAMmIAFYp1YLCCezmnnHGmvZx6D4raAS4sqNCrO061WNyAf9wNFFSslHQ==
+     -
+       internal_properties : CAAAAAgAAABxSfto5m3TrFO4RRozQtrCrcq8Xim29jpjYYwsauVOpLO/RV8Ip+SjP3WIXpuVgTA6Pcw3Xlzgg8GQaQWKoq5YKHNDT78K9SvNEVXO2gYv3Yr4SBtSjOejYj3fCgM2KFibTos792e8gj/arijFR8iw3DGP31MfF1r0rR3FJw3LevV2HSFacekxpBfT1KHNmKdg53sK
+    type : 6
+    controls : []
+    code_elements :
+     type_code : 6
+     p_codes : []
+  -
+    name : STC_Starting_with_Windows
+    identifier : 0x21dd9b8f03020107
+    internal_properties : CAAAAAgAAAA/3oQZo0COcye1HZ3ggqqp4zcoRwzlrwbZGT0m4azpZoEtuwWMrxesg379Nji1zvNMzndfql2NerLcadiw6scIpTiYL1EW4QoWe0qSTKqN8p5ueUAD6cf6p1+r12YI76pfaq8aMG78SY9OvOGhi65e8iFFjmRyMMYGXOdJrL53reGPyx+9oXzDk32bbo4t6k6fssbJ87sYje4YaroXP2nN6VsTQaw9tyJaY/5OguEv4jr+iophKzVsTAWX/9dRuJlGJrWcpjUZTSWgLz5+ndw9PwonCR1eJTImS6LP91H9b7vfaE4s/muUN7PUXCO6qXY6yZ5Lt1kCgfVFyx7dNfWkZTPxLo4GLWJVPwdvbtugvnEOfXYAsbhXKKMOWvU6AIjpbPQ66mtdkH7WdJDPQGObLvJ3o5f/tEe2ar4uB7uy8uXIYbuB5uBvZCLykfLtGz80hLm/CWSfRLN9pOgC7ud2LcFzIR6Wx/HMyQNPjzknBE+RfidG2FdjJwdvE+rlSom/q31jOadWB+UUOSvGfAnecUbbe4MxD/TvsRD/lp3G+EWyoNYxHCCVFUcJ7xW7wKF4l7ZO894W0iHbFnP/CacCKvL45yzIpQEV88dLY7O8gbRSu6Bk0TDR/gp3UdFNAlUaRaIZSU5ByZJStx6GhHuOihEpsRJqXTH36iDqs28LiOkuMsUWDlfxN2quAGzQZkBUZjxpoOxTSN01
+    properties :
+     x : 51
+     y : 20
+     width : 679
+     height : 66
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : STC_Does_the_operating_system_support
+    identifier : 0x21dd9b8f03030107
+    internal_properties : CAAAAAgAAAD+AL87dW/Fht76MniDVYeD+7zgyzQwXA/PC1VTO/ULk7L2FVNGBuzpiNoY696AHuzOkndBc6611LrPX74vrIRYvCO0SzlQDTkbj+PbKeIm9qDJyVkrOi3/1wvzVfxDdjQGjzmKeDFcrN3/EpQEMKAAJEBCj+gPme0qQtq+uM99edkmD8C77VT7qvdjPCW9YhhIiyPetYyDoTJUOfksy3KDHEtTS49ibBi6ycj3L3TVT4esdIO/kJGRTvWw/16zxo+UlHk/reFzfo0mk5113v+EjdaNgPojVncLN/l/dHoRQsJgeM6LRO1S6ph7mo7kIQSxZT+ejZoUIqC1UNYyK4GPAnNwBIhHaAv9h27+KRwppeXgvZughgFPdqXeBkELbBfI8+SBMNOdQt8unFBhtSU/TfqCGeiuqTdtnfKWkLEc+b2WZV2czkCjjyVwU+8Mos9+XzL/G8qiSVSURbidJJmoFw2AUT8UvCwiEyDOFcD7uxAUlX7MY0AFDmzWbNr63lVjbpG4IKDj
+    properties :
+     x : 51
+     y : 124
+     width : 399
+     height : 20
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : STC_Notification_settings
+    identifier : 0x21dd9b8f03040107
+    internal_properties : CAAAAAgAAACxCRUeaALwCigiZASpwPOWS3vWf+3h16zc1PoDjdZTlWzyp7h84mep4X99IZGVyR9GCFFPwpy5BVfps1Tfi+L/vems2E3kJ2AwlyLcLX9Z27v9Y7f1rB9FkuIKFj63PnS3XuLXxMRBIHb/NNIGHJC3LFsUDGUW4bBlKhNNV9uGZiVzSfWyk7jmRBbvCIOUf/eV79oYJUXYhKyuEQ+z68dpTEEZ4/QBoX0ndsEYTogh1W1EpDLSUAEs/cERQH7GGgVcoAglTtQgsZsAVPyfsswC/4LljTfxb74MBSeUkDVT1Ur/jPYwaLP9GwNC8vF3ftzrZVUPKFYK2OhmkXn99h9owu6q3zA0//1LfCj0PhmyOhfuOPy5u7sEtfp/jGOkI8vVYTjIFnf/BXjYWJo+B5p9DGWgwUvBz29S2ig/NNGnyQ0T8bR1GcLKhNWH6g47WbxRxp2FSWMb4rfbt7FGgvyScBgAHLfDfntr0w==
+    properties :
+     x : 51
+     y : 182
+     width : 715
+     height : 211
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : STC_Remove_all_notifications_launched
+    identifier : 0x21dd9b8f03050107
+    internal_properties : CAAAAAgAAAAmwUzOwGzBWeZfBbgZMQWBkEAXn5pTVxthz8w3frjNtlqABH2BO2+TWvqHGZXhvAxtrEY5kCuZky1S/t2igRkO6P4rl+5sg2k7iPvtVetf8dfleNw2kumO/7aQOGbmhRTvIO0RHnww8QiKrVYG2y3JNEJc+M6sbPlmAvdDkVDmArHMkIZQiQCUCTLaz82v12lMeqxLECTj3JqMsAvRfrbbcSEBY7hDXfw28l0fVmGbN0TTtefJh2UQ+ZWAf4vvp5/zKuAScCnM5LOg1mZdcqOTANLdZHNoe2dWJR1C6e37Nul5XVN8ZiBroct2Gt4HcTyGSPqg0SCAxR5KDMdR/MlBS5JUfvdf77cgE9d52EH9BPSezd2dOJo5BaFrxLIgu2l4VQzNRLIdf3HsY9oeAjaD5W7D8orvPQZFr5coLCA9TNYEfVwqzQKJSRMFNfxvCHSR8ekWtrFikM0oJGlVEeTWBQ8uTzxaWWKKXtlM3RqdeoZXfak6RZ+1crDAw5q0IQDrAR0=
+    properties :
+     x : 51
+     y : 435
+     width : 399
+     height : 20
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : STC_Removing_the_notification
+    identifier : 0x21dd9b8f03060107
+    internal_properties : CAAAAAgAAABvJgEGZtSQMDZxCwPb1bsuH4lO6NHfXUm/F6A1fGC8VR3qGbF0tDPWn2mmVmJd2WyNpRh7g7ytgTcx/t8HfC4qqbbuQY6uh8CqYdfp/4rLV9GqTsD1B2/rkhBFOWlthlzPepaG/4WzEFOgR008TgSOPJsrI0CrhJaohUoN5pp8eAsqzv1ckypkJxLa1jCGCGUjq7XKC/dP1m2W4StYfsZ5zZD+DFV7vaMlqCfBDCbF4w9H4YJQAbnvBulFmG82uhZBiyrMojMHq+f+OdyVnD1Dn5cV8xuOY2MB65xMygODJ54V1IHxkBsXOWkxPD0upJYQUs0gvCGhvKDxa2NWRmfWEkc7Kof6ixXti5HDiYsBTn9upqNCtWLTrokLTbBf/r5V/2jcODUDcV/yW8GSbS3tjE5V3BX/tmlXpwGzkILyziOqeJ31L40d18dPiPY6AxNzgQcXlWIIGOXZUxyDNb5RK/qSmpW28kEcGw8P2hLHvefXnSDd9+pF0aQijKDcI08+g8Mhs+FgcJdYYXZrIr1D5EFSL7tLeIPU/qzgcD4VvAWhsz8Q1Mtup4M=
+    properties :
+     x : 74
+     y : 337
+     width : 382
+     height : 36
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : STC_Create_and_remove_a_notification
+    identifier : 0x21dd9b8f03070107
+    internal_properties : CAAAAAgAAAB5qxdbSHXctULLbvKZyr1CWxG0efgx51++QzL+iJatT9lW6QWUmszd9rgekYNi/IsOShPCQdVqR0bmkPWXQl1yyKJHdbJZiqLvcVXzhSj9HLxGJOS/EETL1uc1/oVvl7joE1mnaD9QYjryJi5BDrQm2wNpAfLkX0pXpqFjrIj2PJG73HWOdf7F4bSFlraeorRgyPjHh2FEgeMhxqkRuyQ6VfFMVkp3An5Ohm2Yrr3jQZpsX11SBVUCl+UjM+qLQ+hivnWUdG0c7hT9gkyj4Bg4nRWvmQDqsj0Kkr7z3IDpjwJ8aLaEL44bkV3yjtSeAD2PLcTPwY7VbiCt2E0/MSnDp7Yo+DB/dU8ie2sPjV9YlxZLIIUYkxI5JPedsiugQI6GXjcbKmC/Y5cm4/7NwM6DVKR8gRzZsyDQL2BfmzHvjCnSLOdm0wSdpu7lwXPHAm3pjguAqHtN8y+4nvkNiakXjLgJis0Xm+ryW6SZMiKgT7j00ZYJHIDH0PLh3IC/DyjHVz3uiAVrm7E=
+    properties :
+     x : 51
+     y : 489
+     width : 715
+     height : 74
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+ menu :
+  name : _Menu
+  identifier : 0x292573e513b5f221
+  internal_properties : CAAAAAgAAACCv199ARoPUfG3WAPSG9eefhOOjWMQrs8CrX6cGGGJPoSHWBq4PXhStOWc1YnAZMZ5+EFR1WTDn8CTOTiyLnXPpAR5X8rsRkPZrm1yZeYDDt4kRzDPLbUf4Sh/mD3kd1D8V2drCFLmjeQhgpw7GKGwHRga+ZdjSqXGIC3LD1RracZ230hOmUJTj+ABDW4IHrw4PflmVGgp8E9KnAf/gselRrzEY90l3Cr9N00QijFYYrbrl4qF4kdim1YX6jYT4ezQhbJsU84ENZsxzq+o0JVHYQ8rxck600VhGV04/ao=
+  options : []
+ languages :
+  - en-GB
+ popup_menus : []
+ message_bar :
+  internal_properties : CAAAAAgAAAAjFWXItEk/EPvcbGR+hALkgRfdOpVtIn+yZNxHnmSRFJegE/AnD2HbGAaMfhGCqfzkryHG9FVhjtF+iQYkZ59QBQ88Okhh0vjCoVhOagox2hvIqrJnU30QK15/ZA==
+ actionbar : {}
+ code_elements :
+  type_code : 1
+  p_codes :
+   -
+     code : |1-
+      procedure MyWindow()
+      NotifExample is sysNotification
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+ code_parameters :
+  internal_properties : CAAAAAgAAAAspXRQsX4kpYpRJzI8SMGEUfXYJhQeqig0H9mPZLI9hoPnkeFEnSQ8t7JVd8VUY9eLyST/2DyAYB+9rK7lbHVOclfSdkhgAQ9dNjlmStKMpPl9
+  original_name : Modele1
+resources :
+ string_res :
+  identifier : 0x10fa93c979f8458e
+  internal_properties : CAAAAAgAAACyXVFaObH4lOGSEHJoZf1MD49w+XTw2LScZCP/urkWFwy+HYJdyQ3umA==
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe
